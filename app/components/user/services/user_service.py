@@ -1,6 +1,6 @@
 import numpy as np
 from sqlalchemy.exc import IntegrityError
-from app.db.database import Session
+from ...database import Session
 from ..dto.descriptor import Descriptor
 from ..exceptions.user_already_exists import UserAlreadyExistsException
 from ..exceptions.user_not_found import UserNotFoundException
