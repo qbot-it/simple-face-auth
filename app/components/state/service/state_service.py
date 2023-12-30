@@ -1,5 +1,4 @@
 from enum import Enum
-
 from ...user.models.user import User
 
 
