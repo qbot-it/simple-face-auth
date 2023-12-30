@@ -1,15 +1,12 @@
 import typing
 import cv2
-import os
 
 
 class FaceService:
     __face_cascade: cv2.CascadeClassifier
 
     def __init__(self):
-        file = 'haarcascade_frontalface_default.xml'
-        path_dir = os.path.dirname(cv2.__file__) + '/data/'
-        self.__face_cascade = cv2.CascadeClassifier(os.path.join(path_dir, file))
+        self.__face_cascade = cv2.CascadeClassifier('files/haarcascade_frontalface_default.xml')
 
     def detect_faces(self, frame):
         frame = cv2.equalizeHist(frame)
