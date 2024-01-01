@@ -34,7 +34,6 @@ PROJECT_UI = "files/main.ui"
 
 
 class MainApp:
-
     state_service: StateService
     user_service: UserService
     face_matcher: LbphMatcher | DlMatcher
@@ -171,7 +170,8 @@ class MainApp:
             frame_color = self.face_detector.mark_faces(self.current_frame.color, self.current_frame.faces)
 
             # for tests
-            # frame_color = self.current_frame.roi if self.current_frame.roi is not None else frame_color
+            # if len(self.current_frame.faces.frames) > 0:
+            #    frame_color = self.current_frame.faces.frames[0]
 
             image = Image.fromarray(frame_color)
             image = ImageOps.fit(image, (450, 450))

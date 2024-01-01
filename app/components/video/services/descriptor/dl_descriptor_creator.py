@@ -16,7 +16,6 @@ class DlDescriptorCreator:
         if frame.faces.frames is None or len(frame.faces.frames) == 0:
             raise CreateDescriptorException()
 
-        encodings = face_recognition.face_encodings(face_image=frame.color, known_face_locations=frame.faces.coordinates)
-        encodings = encodings if len(encodings) > 0 else []
+        encodings = face_recognition.face_encodings(frame.color)
 
         return Descriptor(features=np.array(encodings))
