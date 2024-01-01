@@ -1,5 +1,6 @@
 import numpy as np
 from sqlalchemy.exc import IntegrityError
+
 from ...database import Session
 from ..dto.descriptor import Descriptor
 from ..exceptions.user_already_exists import UserAlreadyExistsException
@@ -57,7 +58,12 @@ class UserService:
                 raise UserNotFoundException()
 
             old_descriptor = Descriptor.from_json(user.descriptor)
-            old_descriptor.lbph = np.concatenate((old_descriptor.lbph, descriptor.lbph), axis=0)
+
+            if len(descriptor.lbph) > 0:
+                old_descriptor.lbph = np.concatenate((old_descriptor.lbph, descriptor.lbph), axis=0)
+            if len(descriptor.dl) > 0:
+                old_descriptor.dl = np.concatenate((old_descriptor.dl, descriptor.dl), axis=0)
+
             user.descriptor = old_descriptor.to_json()
 
             try:

@@ -1,14 +1,11 @@
-from enum import Enum
+from ..enums.method import Method
+from ..enums.mode import Mode
 from ...user.models.user import User
-
-
-class Mode(Enum):
-    AUTH = 1
-    ADD = 2
 
 
 class StateService:
     __mode: Mode
+    __method: Method
     __processing: bool
     __auth_active: bool
     __auth_user: User | None
@@ -22,11 +19,17 @@ class StateService:
     def get_mode(self) -> Mode:
         return self.__mode
 
+    def get_method(self) -> Method:
+        return self.__method
+
     def get_auth_active(self) -> bool:
         return self.__auth_active
 
     def set_mode(self, mode: Mode):
         self.__mode = mode
+
+    def set_method(self, method: Method):
+        self.__method = method
 
     def set_auth_active(self, user: User):
         self.__auth_active = True
