@@ -125,6 +125,7 @@ class MainApp:
                 try:
                     self.set_processing(True)
                     self.frm_video.configure(style='VideoFrameRed.TFrame')
+                    self.btn_start.configure(text='Stop')
                     user = self.user_service.get_one(email)
                     self.state_service.set_auth_active(user)
                 except UserNotFoundException as e:
@@ -139,6 +140,7 @@ class MainApp:
             if self.state_service.get_mode() == Mode.AUTH and self.state_service.get_auth_active():
                 self.frm_video.configure(style='')
                 self.state_service.set_auth_inactive()
+                self.btn_start.configure(text='Auth')
                 self.set_processing(False)
 
     def rb_method_changed(self):
@@ -206,6 +208,7 @@ class MainApp:
                         self.frm_video.configure(style='')
                         messagebox.showinfo("Authentication", "Authentication successful.")
                         self.state_service.set_auth_inactive()
+                        self.btn_start.configure(text='Auth')
                         self.set_processing(False)
                 except Exception as e:
                     print(e)
