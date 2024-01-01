@@ -7,9 +7,9 @@ from PIL import ImageTk, Image, ImageOps
 from email_validator import validate_email, EmailNotValidError
 import cv2
 
-from app.components.video.exceptions.descriptor_creator_not_found_exception import DescriptorCreatorNotFoundException
-from app.components.video.exceptions.face_detector_not_found_exception import FaceDetectorNotFoundException
-from app.components.video.exceptions.matcher_not_found_exception import MatcherNotFoundException
+from components.video.exceptions.descriptor_creator_not_found_exception import DescriptorCreatorNotFoundException
+from components.video.exceptions.face_detector_not_found_exception import FaceDetectorNotFoundException
+from components.video.exceptions.matcher_not_found_exception import MatcherNotFoundException
 from components.user.exceptions.user_already_exists import UserAlreadyExistsException
 from components.user.exceptions.user_not_found import UserNotFoundException
 from components.video.exceptions.create_descriptor_exception import CreateDescriptorException
