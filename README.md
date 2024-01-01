@@ -2,6 +2,8 @@
 
 ⚠️ For educational purposes only
 
+Python 3.10
+
 ## Start
 
 ### Install dependencies
