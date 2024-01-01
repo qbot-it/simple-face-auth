@@ -11,7 +11,7 @@ class LbphMatcher:
 
         for lbph in descriptor.lbph:
             for vector in request.features:
-                distance = min(euclidean_distances([lbph], [vector]))
+                distance = min(euclidean_distances([lbph], [vector])[0])
                 if min_distance is None:
                     min_distance = distance
 
@@ -19,4 +19,4 @@ class LbphMatcher:
 
         print(f"lbph distance: {min_distance}")
 
-        return min_distance < 0.70
+        return min_distance < 0.65
