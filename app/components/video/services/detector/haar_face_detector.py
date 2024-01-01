@@ -9,7 +9,7 @@ class HaarFaceDetector(FaceDetector):
     __face_cascade: cv2.CascadeClassifier
 
     def __init__(self):
-        self.__face_cascade = cv2.CascadeClassifier('files/haarcascade_frontalface_default.xml')
+        self.__face_cascade = cv2.CascadeClassifier('files/classifiers/haarcascade_frontalface_default.xml')
 
     def faces(self, raw_video_frame: ndarray) -> Faces:
         video_frame = cv2.equalizeHist(cv2.cvtColor(raw_video_frame, cv2.COLOR_BGR2GRAY))

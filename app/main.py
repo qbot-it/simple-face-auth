@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import pathlib
 import tkinter.ttk as ttk
 from tkinter import messagebox, END
 import pygubu
@@ -30,8 +29,8 @@ from components.video.services.detector.haar_face_detector import HaarFaceDetect
 from components.video.services.matcher.dl_matcher import DlMatcher
 from components.video.services.matcher.lbph_matcher import LbphMatcher
 
-PROJECT_PATH = pathlib.Path(__file__).parent
-PROJECT_UI = PROJECT_PATH / "files/main.ui"
+PROJECT_PATH = ""
+PROJECT_UI = "files/main.ui"
 
 
 class MainApp:
